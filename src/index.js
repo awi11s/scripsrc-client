@@ -14,7 +14,7 @@ import dotenv from 'dotenv';
 dotenv.config()
 
 const httpLink = createHttpLink({
-  uri: process.env.GQL_ENDPOINT,
+  uri: 'api.scripturesrc.app',
 });
 
 const authLink = setContext((_, { headers }) => {
