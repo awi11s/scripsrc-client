@@ -14,7 +14,7 @@ import dotenv from 'dotenv';
 dotenv.config()
 
 const httpLink = createHttpLink({
-  uri: 'api.scripturesrc.app',
+  uri: 'https://api.scripturesrc.app',
 });
 
 const authLink = setContext((_, { headers }) => {
