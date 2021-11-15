@@ -20,8 +20,8 @@ const Annotation = ({ book, chapter, verse }) => {
       return (
         <>
         <h2>error:</h2>
-        <p>DB is inaccessable on mobile rn</p>
-        <p>annotations will go here...</p>
+        <p>database is inaccessable right now</p>
+        <p>check internet connection or go to about page to report an issue</p>
         </>
       );
     }
