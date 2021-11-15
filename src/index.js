@@ -13,8 +13,18 @@ import dotenv from 'dotenv';
 
 dotenv.config()
 
+let ENDPOINT;
+if (NODE_ENV === 'development') {
+  ENDPOINT = process.env.GQLENDPOINT;
+  console.log('you are in development')
+} else {
+  ENDPOINT = 'https://api.scripturesrc.app';
+}
+
+
+
 const httpLink = createHttpLink({
-  uri: 'https://api.scripturesrc.app',
+  uri: ENDPOINT,
 });
 
 const authLink = setContext((_, { headers }) => {
