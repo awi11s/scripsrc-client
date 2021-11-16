@@ -14,14 +14,14 @@ import dotenv from 'dotenv';
 dotenv.config()
 
 let ENDPOINT;
-if (NODE_ENV === 'development') {
-  ENDPOINT = process.env.GQLENDPOINT;
+if (process.env.NODE_ENV === 'development') {
+  ENDPOINT = 'http://localhost:4000/graphql';
   console.log('you are in development')
 } else {
   ENDPOINT = 'https://api.scripturesrc.app';
 }
 
-
+console.log(process.env.NODE_ENV)
 
 const httpLink = createHttpLink({
   uri: ENDPOINT,
