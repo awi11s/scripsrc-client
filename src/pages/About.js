@@ -13,6 +13,7 @@ export const About = () => {
                 any submissions that might be up for doctrinal debate will be rejected.
             </p>
             <p>reach out to austinwills98@gmail.com if you have any questions or concerns</p>
+            <p>NOTE: THE BOOK OF PHILIPPIANS DOES NOT PROPERLY DISPLAY YET</p>
             <button style={BUTTON_STYLES}><Link style={LINK_STYLES} to="/">back to home</Link></button>
         </div>
     )
