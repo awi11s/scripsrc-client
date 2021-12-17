@@ -8,3 +8,17 @@ export const GET_ANNOTATION = gql`
         }
     }
 `;
+
+export const GET_VERSES = gql`
+    query verses($book: String!, $chapter: String!) {
+        getVerses(book: $book, chapter: $chapter) {
+            book
+            totalChaps
+            chapter
+            verses {
+                verse 
+                text
+            }
+        }
+    }
+`;

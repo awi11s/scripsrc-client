@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BUTTON_STYLES, LINK_STYLES } from '../style/styles'
+import { BUTTON_STYLES, LINK_STYLES } from '../constants/styles'
 
 export const About = () => {
     return (
@@ -13,7 +13,7 @@ export const About = () => {
                 any submissions that might be up for doctrinal debate will be rejected.
             </p>
             <p>reach out to austinwills98@gmail.com if you have any questions or concerns</p>
-            <p>NOTE: THE BOOK OF PHILIPPIANS DOES NOT PROPERLY DISPLAY YET</p>
+            <p>NOTE: Due to the fact that Scripture only supports the 4 gospels, annotations can also be submitted for cross-referencing purposes.</p>
             <button style={BUTTON_STYLES}><Link style={LINK_STYLES} to="/">back to home</Link></button>
         </div>
     )

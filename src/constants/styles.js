@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: #fff5fd;
     margin: 0 auto;
-    color: #99764e;
+    color: #8B4A4A;
     text-align: center;
     max-width: 700px;
   }
@@ -95,7 +95,7 @@ export const INPUT_STYLES = {
 
 export const CONTENTBTN_STYLES = {
   display: 'inline-block',
-  color: '#99764e',
+  color: '#8B4A4A',
   backgroundColor: '#fffaed',
   fontSize: '1.4em',
   margin: '1em',
@@ -109,7 +109,7 @@ export const CONTENTBTN_STYLES = {
 export const BUTTON_STYLES = {
   display: 'inline-block',
   color: '#fffaed',
-  backgroundColor: '#99764e',
+  backgroundColor: '#8B4A4A',
   fontSize: '1em',
   margin: '1em',
   padding: '0.25em 1em',
@@ -118,8 +118,37 @@ export const BUTTON_STYLES = {
   borderRadius: '5px'
 }
 
+export const BOOK_BUTTONS = {
+  display: 'inline-block',
+  color: '#fffaed',
+  backgroundColor: '#4A8B4A',
+  fontSize: '1em',
+  margin: '1em',
+  padding: '1em 1em',
+  border: 'none',
+  filter: 'drop-shadow(0 3mm 3mm #99764e)',
+  borderRadius: '30px'
+}
+
+export const CHAPTER_BUTTONS = {
+  display: 'inline-block',
+  color: '#fffaed',
+  backgroundColor: '#8B4A4A',
+  fontSize: '1em',
+  margin: '1em',
+  padding: '0.5em 1em',
+  border: 'none',
+  filter: 'drop-shadow(0 3mm 3mm #99764e)',
+  borderRadius: '30px'
+}
+
 export const LINK_STYLES = {
   textDecoration: 'none',
   color: '#fffaed'
+}
 
+export const FOOTER_STYLES = {
+  height: '5em',
+  padding: '1em',
+  margin: '1'
 }

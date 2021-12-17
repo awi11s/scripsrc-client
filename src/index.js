@@ -11,12 +11,12 @@ import {
 import { setContext } from '@apollo/client/link/context'
 import dotenv from 'dotenv';
 
+
 dotenv.config()
 
 let ENDPOINT;
 if (process.env.NODE_ENV === 'development') {
   ENDPOINT = 'http://localhost:4000/graphql';
-  console.log('you are in development')
 } else {
   ENDPOINT = 'https://api.scripturesrc.app';
 }
@@ -26,6 +26,7 @@ console.log(process.env.NODE_ENV)
 const httpLink = createHttpLink({
   uri: ENDPOINT,
 });
+
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists

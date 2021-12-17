@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { BUTTON_STYLES, LINK_STYLES } from '../style/styles'
+import { BUTTON_STYLES, LINK_STYLES } from '../constants/styles'
 import ChapDisplay from '../components/ChapDisplay'
 import { MainGraphic } from '../assets/MainGraphic'
 import { AuthContext } from '../components/context/authContext'
+import { Footer } from '../components/Footer'
 
 export const Home = () => {
 
@@ -30,6 +31,7 @@ export const Home = () => {
                 </>
             }       
             <ChapDisplay />
+            <Footer />
         </>
     )
 }

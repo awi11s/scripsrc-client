@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import { 
     BUTTON_STYLES, 
     LINK_STYLES
-} from '../style/styles';
+} from '../constants/styles';
 import { AuthContext } from './context/authContext';
 import { GET_ANNOTATION } from '../utils/queries';
 

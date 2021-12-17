@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { MainGraphic } from '../assets/MainGraphic';
 import { AuthContext } from '../components/context/authContext'
-import { BUTTON_STYLES, FORM_STYLE, INPUT_STYLES, LINK_STYLES } from '../style/styles';
+import { BUTTON_STYLES, FORM_STYLE, INPUT_STYLES, LINK_STYLES } from '../constants/styles';
 import { REGISTER_USER } from '../utils/mutations';
 
 

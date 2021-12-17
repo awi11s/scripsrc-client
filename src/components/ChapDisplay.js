@@ -1,91 +1,77 @@
-import axios from 'axios';
-import { useState } from 'react';
+import { useState } from "react";
 
-import Modal from './Modal'
+import { Verses } from "./Verses";
 import { 
-    INPUT_STYLES,
-    CONTENTBTN_STYLES, 
     FORM_STYLE, 
-    BUTTON_STYLES } from '../style/styles';
-
-
-
-
-const lastCallState = {
-    book: '',
-    chapter: ''
-}
+    BOOK_BUTTONS, 
+    CHAPTER_BUTTONS } from "../constants/styles";
+import { chapters } from "../constants/bookChapters";
 
 const ChapDisplay = () => {
-    const [modalOpen, setModalOpen] = useState(false)
-    const [verses, setVerses] = useState([])
-    const [verse, setVerse] = useState(0)
-    const [bookName, setBookName] = useState('')
-    const [chapNum, setChapNum] = useState(0)
-    const [status, setStatus] = useState('')
+  const [book, setBook] = useState("");
+  const [chapter, setChapter] = useState("");
+  const [chapterList, setChapterList] = useState([]);
+  const [showChapters, setShowChapters] = useState(false);
+  const [showVerses, setShowVerses] = useState(false);
 
+  function onBook(e) {
+    setShowChapters(false);
+    setShowVerses(false);
+    setChapterList([]);
 
-    
-    const call = async (book, chapter) => {
-        if (lastCallState.book === book && lastCallState.chapter === chapter) return;
+    // gets number of chapter for book, makes an array from number for chapter buttons
+    let b = e.target.innerHTML;
+    let c = chapters[b];
 
-        try {
-            const res = await axios.get(
-                `https://bible-api.com/${book}+${chapter}`
-            );
+    setBook(b);
+    setChapter(c);
 
-            setVerses(res.data.verses)
-            setStatus(`book of ${book.toLowerCase()} - chapter ${chapter}`)
-            lastCallState.book = book;
-            lastCallState.chapter = chapter;
-            console.log(res.data)
-            
-            
-        } catch {
-            setVerses([])
-            setStatus('provide correct book name and chapter number')
-        }
-    }
+    let intChapter = parseInt(c);
+    setChapterList(Array.from({ length: intChapter }, (v, i) => i + 1));
 
+    setShowChapters(true);
+  }
 
-    return (
-        <>
-            <div style={FORM_STYLE}>
-                <input 
-                    placeholder="book name"
-                    style={INPUT_STYLES} 
-                    type='text' 
-                    onChange={(e) => setBookName(e.target.value)}/>
-                <input 
-                    placeholder="chapter #"
-                    style={INPUT_STYLES} 
-                    // making sure that the chapter is a number before a bad req is sent to the server
-                    onChange={(e) => setChapNum(e.target.value)}/>
-                <button style={BUTTON_STYLES} onClick={() => call(bookName.trim(), chapNum)}>show</button>
-            </div>
-            <h1>{status}</h1>
-            {
-            verses.map(v => (
-                <button 
-                style={CONTENTBTN_STYLES} 
-                    key={v.verse} 
-                    onClick={() => {
-                        setModalOpen(true)
-                        setVerse(v.verse.toString())
-                    }}>{v.text}</button>
-            ))
-            }
-            <Modal
-                open={modalOpen}
-                book={bookName}
-                // once assured that chapter field is a number, then it can be packaged as a string for the server request
-                chapter={chapNum.toString()}
-                verse={verse}
-                onClose={() => setModalOpen(false)}
-            ></Modal>
+  function onChapter(num) {
+    // calls api for bible verses
+    setChapter(num.toString());
+    setShowVerses(true);
+  }
 
-        </>
-    )
-}
+  return (
+    <>
+      <div style={FORM_STYLE}>
+        <button style={BOOK_BUTTONS} onClick={onBook}>
+          matthew
+        </button>
+        <button style={BOOK_BUTTONS} onClick={onBook}>
+          mark
+        </button>
+        <button style={BOOK_BUTTONS} onClick={onBook}>
+          luke
+        </button>
+        <button style={BOOK_BUTTONS} onClick={onBook}>
+          john
+        </button>
+      </div>
+
+      {showChapters ? (
+        chapterList.map((item, idx) => (
+          <button
+            key={idx}
+            style={CHAPTER_BUTTONS}
+            onClick={() => onChapter(item)}
+          >
+            {item}
+          </button>
+        ))
+      ) : (
+        <p>select on a book and chapter to begin</p>
+      )}
+
+      {showVerses ? <Verses book={book} chapter={chapter} /> : null}
+    </>
+  );
+};
 
 export default ChapDisplay;

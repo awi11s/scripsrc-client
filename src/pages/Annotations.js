@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { MainGraphic } from '../assets/MainGraphic';
 import { CREATE_ANNOTATION } from '../utils/mutations';
-import { BUTTON_STYLES, FORM_STYLE, INPUT_STYLES, LINK_STYLES } from '../style/styles';
+import { BUTTON_STYLES, FORM_STYLE, INPUT_STYLES, LINK_STYLES } from '../constants/styles';
 
 
 

@@ -5,7 +5,7 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-import { GlobalStyle } from "./style/styles";
+import { GlobalStyle } from "./constants/styles";
 import { Annotations } from "./pages/Annotations";
 import { AuthProvider } from "./components/context/authContext";
 import { AuthRoute, PrivateRoute } from "./utils/AuthRoute";
